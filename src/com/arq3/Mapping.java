@@ -6,33 +6,15 @@ package com.arq3;
  */
 public class Mapping {
 
-    private int memorySize;
 
-    private int wordSize;
-
-    private int wordsPerBlock;
-
-    private int linesPerSet;
-
-    private int cacheSets;
-
-    private int[] memoryAccess;
-
-    public Mapping(int size, int x, int p, int b, int c, int[] Access) {
-        memorySize = size;
-        wordSize = x;
-        wordsPerBlock = p;
-        cacheSets = c;
-        memoryAccess = Access;
-        linesPerSet = b;
-    }
-
-    public BlockResult CalculateDirect() {
-        int cacheSize = wordSize * wordsPerBlock * cacheSets;
+    public static BlockResult CalculateDirect(BlockInitial blockInitial) {
+        int cacheSize = blockInitial.mainInfo.bytesNaPalavra *
+                blockInitial.mainInfo.palavrasNoBloco *
+                blockInitial.mainInfo.conjuntoCache;
         //Contando que o valor de memorySize já esteja em bytes
-        int addrBitsCount = Integer.toBinaryString(memorySize-1).length();
-        int bitsBlockPosition = Integer.toBinaryString((wordsPerBlock*wordSize)-1).length();
-        int bitsSet = Integer.toBinaryString(cacheSets-1).length();
+        int addrBitsCount = Integer.toBinaryString(blockInitial.memorySize.value-1).length();
+        int bitsBlockPosition = Integer.toBinaryString((blockInitial.mainInfo.palavrasNoBloco*blockInitial.mainInfo.bytesNaPalavra)-1).length();
+        int bitsSet = Integer.toBinaryString(blockInitial.mainInfo.conjuntoCache-1).length();
         int bitsTag = addrBitsCount-bitsBlockPosition-bitsSet;
         BlockResult result = new BlockResult();
         result.addrBitsCount = addrBitsCount;
@@ -42,10 +24,10 @@ public class Mapping {
         result.bitsTAG = bitsTag;
         result.processoEnderecos = new BlockResult.ProcessoEnderecos();
 
-        for (int i = 0; i < memoryAccess.length; i++) {
+        for (int i = 0; i < blockInitial.mainInfo.acessosMemoria.length; i++) {
                 String baseString =
-                        "0".repeat(addrBitsCount - Integer.toBinaryString(memoryAccess[i]).length())
-                        .concat(Integer.toBinaryString(memoryAccess[i]));
+                        "0".repeat(addrBitsCount - Integer.toBinaryString(blockInitial.mainInfo.acessosMemoria[i]).length())
+                        .concat(Integer.toBinaryString(blockInitial.mainInfo.acessosMemoria[i]));
 
                 int tag = Integer.parseInt(baseString.substring(0, bitsTag), 2);
                 int line = Integer.parseInt(baseString.substring(bitsTag, bitsTag + bitsBlockPosition), 2);
@@ -55,4 +37,9 @@ public class Mapping {
 
         return result;
     }
+
+    public static BlockResult CalculateAssociativeSet() throws Exception {
+        throw new Exception("Not implemented!");
+    }
+
 }
