@@ -17,20 +17,20 @@ public class BlockInitial {
      * ○ um número inteiro ‘n’ que dirá quantos acessos à memória deverão ser processado
     * */
     public MainInfo mainInfo;
-
-    public class MainInfo {
+    public int[] acessosMemoria;
+    public static class MainInfo {
         public int bytesNaPalavra;
         public int palavrasNoBloco;
         public int viasNoConjunto;
         public int conjuntoCache;
-        public int[] acessosMemoria;
+        public int qntdAcessosMemoria;
 
-        public MainInfo(int bytesNaPalavra, int palavrasNoBloco, int viasNoConjunto, int conjuntoCache, int[] acessosMemoria) {
+        public MainInfo(int bytesNaPalavra, int palavrasNoBloco, int viasNoConjunto, int conjuntoCache, int qntdAcessosMemoria) {
             this.bytesNaPalavra = bytesNaPalavra;
             this.palavrasNoBloco = palavrasNoBloco;
             this.viasNoConjunto = viasNoConjunto;
             this.conjuntoCache = conjuntoCache;
-            this.acessosMemoria = acessosMemoria;
+            this.qntdAcessosMemoria = qntdAcessosMemoria;
         }
     }
 
@@ -42,10 +42,10 @@ public class BlockInitial {
             GB;
         }
         public MemoryType type;
-        public int value;
+        public long value;
 
 
-        public MemorySize GetMemoryInBytes(int value, String memoryType){
+        public static MemorySize GetMemoryInBytes(long value, String memoryType){
             var retorno = new MemorySize();
             if(memoryType.equalsIgnoreCase("kb")){
                 retorno.value = value * 1024;
@@ -55,7 +55,7 @@ public class BlockInitial {
                 retorno.value = value * 1024 * 1024;
                 retorno.type = MemoryType.MB;
             }
-            else if(memoryType.equalsIgnoreCase("kb")){
+            else if(memoryType.equalsIgnoreCase("gb")){
                 retorno.value = value * 1024 * 1024 * 1024;
                 retorno.type = MemoryType.GB;
             }
