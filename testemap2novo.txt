@@ -1,0 +1,12 @@
+Tamanho da cache: 16 KB
+Número de bits do endereço: 29
+Número de bits para a posição no bloco: 6
+Número de bits para o número do conjunto: 0
+Número de bits para a TAG: 23
+116 0 8
+16 0 0
+44 0 44
+226 0 58
+132 0 52
+255 0 60
+172 0 16

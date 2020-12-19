@@ -17,7 +17,7 @@ public class Mapping {
         int bitsTag = addrBitsCount-bitsBlockPosition-bitsSet;
         BlockResult result = new BlockResult();
         result.addrBitsCount = addrBitsCount;
-        result.cacheSize = cacheSize;
+        result.cacheSize = BlockResult.MemorySizeStr.GetMemoryResult(cacheSize);
         result.bitsBlockPosition = bitsBlockPosition;
         result.bitsSet = bitsSet;
         result.bitsTAG = bitsTag;
@@ -49,7 +49,7 @@ public class Mapping {
         int bitsTag = addrBitsCount-bitsBlockPosition-bitsSet;
         BlockResult result = new BlockResult();
         result.addrBitsCount = addrBitsCount;
-        result.cacheSize = cacheSize;
+        result.cacheSize = BlockResult.MemorySizeStr.GetMemoryResult(cacheSize);
         result.bitsBlockPosition = bitsBlockPosition;
         result.bitsSet = bitsSet;
         result.bitsTAG = bitsTag;
@@ -81,7 +81,7 @@ public class Mapping {
         int bitsTag = addrBitsCount-bitsBlockPosition-bitsSet;
         BlockResult result = new BlockResult();
         result.addrBitsCount = addrBitsCount;
-        result.cacheSize = cacheSize;
+        result.cacheSize = BlockResult.MemorySizeStr.GetMemoryResult(cacheSize);
         result.bitsBlockPosition = bitsBlockPosition;
         result.bitsSet = bitsSet;
         result.bitsTAG = bitsTag;
