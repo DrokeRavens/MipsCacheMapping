@@ -46,7 +46,7 @@ public class BlockInitial {
 
 
         public static MemorySize GetMemoryInBytes(long value, String memoryType){
-            var retorno = new MemorySize();
+            MemorySize retorno = new MemorySize();
             if(memoryType.equalsIgnoreCase("kb")){
                 retorno.value = value * 1024;
                 retorno.type = MemoryType.KB;

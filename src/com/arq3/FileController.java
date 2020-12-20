@@ -28,7 +28,6 @@ public class FileController {
             return new Scanner(file);
         }
         catch (FileNotFoundException ex){
-            System.out.println("Arquivo não encontrado!");
             return null;
         }
     }
@@ -46,16 +45,17 @@ public class FileController {
             output.append(blockResult.processoEnderecos.linha.get(i)).append("\n");
         }
 
-        var newFile = new File(file.getPath().replace(".txt", "") + "novo.txt");
+        File newFile = new File(file.getPath().replace(".txt", "") + "novo.txt");
         try{
             if (newFile.createNewFile()) {
                 System.out.println("Novo arquivo criado! [ " + newFile.getName() + " ]");
             } else {
-                System.out.println("Já existe um arquivo com o nome [ " + newFile.getName() + " ]");
+                System.out.println("Já existe um arquivo com o nome [ " + newFile.getName() + " ] Sobrescrevendo arquivo!");
             }
         }
         catch (IOException e) {
             System.out.println("Erro [ " + e.getMessage() + " ]");
+            return;
         }
 
         try {

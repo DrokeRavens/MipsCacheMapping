@@ -1,1 +1,1 @@
-javar -jar MipsCacheMapping.jar
+java -jar MipsCacheMapping.jar

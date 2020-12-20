@@ -17,6 +17,10 @@ public class Main {
 
             FileController fileController = new FileController(cmd);
             var lines = fileController.ReadAllLines();
+            if(lines.length == 0) {
+                System.out.println("Arquivo não encontrado ou vazio.");
+            }
+
 
             try{
                 var initBlock = new BlockInitial();
@@ -31,7 +35,7 @@ public class Main {
                         splitedMainInfoListInt.get(3),splitedMainInfoListInt.get(4));
 
                 initBlock.acessosMemoria = new int[lines.length-3];
-                for(int i =3, j =0 ; i < lines.length; i++, j++){
+                for(int i = 3, j =0 ; i < lines.length; i++, j++){
                     initBlock.acessosMemoria[j] = Integer.parseInt(lines[i]);
                 }
                 BlockResult result = new BlockResult();

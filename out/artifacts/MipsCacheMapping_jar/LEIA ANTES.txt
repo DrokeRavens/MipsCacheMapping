@@ -1,0 +1,4 @@
+Programa feito utilizando o JAVA JDK 11
+Para executar, é necessário o KIT JAVA SE/JDK 11.
+Link para download:
+https://www.oracle.com/java/technologies/javase-jdk11-downloads.html

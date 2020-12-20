@@ -29,9 +29,9 @@ public class BlockResult {
 
 
         public static MemorySizeStr GetMemoryResult(long value){
-            var retorno = new MemorySizeStr();
+            MemorySizeStr retorno = new MemorySizeStr();
 
-            var tmp = value / 1024;
+            long tmp = value / 1024;
             if(tmp <= 0){
                 retorno.value = value;
                 retorno.type = "B";

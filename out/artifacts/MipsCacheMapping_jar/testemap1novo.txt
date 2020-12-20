@@ -1,0 +1,10 @@
+Tamanho da cache: 64 B
+Número de bits do endereço: 10
+Número de bits para a posição no bloco: 3
+Número de bits para o número do conjunto: 3
+Número de bits para a TAG: 4
+0 0 0
+2 0 0
+0 5 2
+1 3 2
+11 7 4
